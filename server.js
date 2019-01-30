@@ -1,4 +1,6 @@
 const express = require("express");
+const session = require("express-session");
+const passport = require(".config/passport");
 const db = require("./models");
 var routes = require("./routes");
 const axios=require("axios");
@@ -9,6 +11,11 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+
+//creating sessions for passport to use of login status
+app.use(session({secret:"keyboard cat", resave:true, saveUninitialized:true}));
+app.use(passport.initialize());
+app.use(passport.session());
 
 if (process.env.NODE_ENV === "production"){
     app.use(express.static("client/build"));
