@@ -3,21 +3,15 @@ const session = require("express-session");
 const passport = require("./config/passport");
 const db = require("./models");
 // var routes = require("./routes");
-const axios=require("axios");
 const cheerio= require("cheerio");
 const PORT = process.env.PORT || 5000;
-const app = express();
-
-
-const api=require('./routes/api-routes');
+const user = require('./routes/api-routes');
 const htmlRoutes = require('./routes/html-routes');
-
-app.use('/', api);
-app.use('/', htmlRoutes);
-
-app.use(express.urlencoded({ extended: true}));
+const app = express();
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
+require("./routes/api-routes.js")(app);
+require("./routes/html-routes.js")(app);
 //creating sessions for passport to use of login status
 app.use(session({secret:"keyboard cat", resave:true, saveUninitialized:true}));
 app.use(passport.initialize());
