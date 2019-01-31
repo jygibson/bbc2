@@ -1,28 +1,26 @@
 
-import React from "react";
+import React from 'react'
+import { Button, Form, Message } from 'semantic-ui-react'
+var axios = require('axios');
 
-function AuthenticationForm() {
-    return(
-        $('.ui.form')
-        .form({
-          fields: {
-           email: 'empty',
-           password: ['min length[6]', 'empty']
-          }
-        }),
-      if( $('.ui.form').form('is valid')) {
-        // form is valid (both email and name)
-      }
-    )
-};
+const LoginForm = () => (
+  <Form success>
+    <Form.Input label='Email' id='email-inputL' placeholder='bunny@beautybunny.com' />
+    <Form.Input label='Password' id="password-inputL" placeholder='password' />
+    <Button id="login" onClick={Authenticate}>Login</Button>
+    <Message success header='Form Completed' content="You're logged in!" />
+  </Form>
+)
+
+export default LoginForm;
 
 function Authenticate(){
     //grabbing the form data and validating there is actually shit in it
-    var loginForm = $("form.login");
-    var emailInput= $("input#email-input");
-    var passwordInput = $("input#password-input");
+    var loginForm = document.getElementById("#login");
+    var emailInput= document.getElementById("#email-inputL");
+    var passwordInput = document.getElementById("#password-inputL");
 
-    loginForm.on("submit", function(event){
+    loginForm.addEventListener("click", function(event){
         event.preventDefault();
         var userData = {
             email: emailInput.val().trim(),
@@ -40,7 +38,7 @@ function Authenticate(){
     });
 
     function loginUser(email, password){
-        $.post("/api/login", {
+        axios.post("/api/login", {
             email: email,
             password: password
         }).then(function(data){
@@ -51,4 +49,4 @@ function Authenticate(){
     };
 };
 
-export default AuthenticationForm;
+// export default AuthenticationForm;
