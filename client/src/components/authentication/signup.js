@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import { Button, Form, Message } from 'semantic-ui-react'
 
-var axios = require('axios');
+import axios from 'axios';
 
 class SignupForm extends Component {
   constructor(props) {
@@ -15,14 +15,13 @@ class SignupForm extends Component {
 
   signup = (e) => {
     e.preventDefault();
-    console.log('the button was clicked');
     console.log(this.state.email);
     console.log(this.state.password);
     const {email, password} = this.state;
     axios.post("/api/signup", { email, password})
       .then((res) => {
    console.log('the res', res.data);
-  }).catch((err)=>console.log(err.responseJSON));
+  }).catch((err)=>console.log('there was an error'));
 }
 
 
@@ -37,24 +36,23 @@ class SignupForm extends Component {
   render() {
     console.log('the state', this.state);
     return (
-      <Form success>
-      <Form.Input 
+      <form onSubmit={ this.signup }>
+        <input 
         label='Email'
         id='email-inputS'
         name='email'
         placeholder='bunny@beautybunny.com'
         onChange={ this.handleChange}
       />
-      <Form.Input 
+      <input 
         label='Password' 
         id="password-inputS"
         name='password' 
         placeholder='password' 
         onChange={this.handleChange}
         />
-      <Button id="signup" onClick={this.signup}>Sign Up</Button>
-      <Message success header='Form Completed' content="You're all signed up" />
-    </Form>
+      <button type="submit">Sign Up</button>
+    </form>
     )
   };
 }
