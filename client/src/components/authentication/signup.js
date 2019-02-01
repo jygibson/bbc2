@@ -18,7 +18,7 @@ class SignupForm extends Component {
     console.log(this.state.email);
     console.log(this.state.password);
     const {email, password} = this.state;
-    axios.post("/api/signup", { email, password})
+    axios.post("http://localhost:5000/api/signup", { email, password})
       .then((res) => {
    console.log('the res', res.data);
   }).catch((err)=>console.log('there was an error'));

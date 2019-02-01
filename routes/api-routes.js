@@ -3,6 +3,7 @@ var router = express.Router();
 var db = require("../models");
 var passport = require("../config/passport");
 var bcrypt = require('bcrypt-nodejs');
+
 module.exports = function(app) {
 
 app.post("/api/signup", function(req, res) {
