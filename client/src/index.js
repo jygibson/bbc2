@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-import ModalExampleCloseIcon from './components/authentication'
+import 'semantic-ui-react';
+import App from './App';
 
 
-ReactDOM.render(<ModalExampleCloseIcon />, document.getElementById('root'));
+
+ReactDOM.render(<App />, document.getElementById('root'));
 

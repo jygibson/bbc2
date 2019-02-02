@@ -1,52 +1,61 @@
 
-import React from 'react'
+import React, { Component } from 'react'
 import { Button, Form, Message } from 'semantic-ui-react'
-var axios = require('axios');
 
-const LoginForm = () => (
-  <Form success>
-    <Form.Input label='Email' id='email-inputL' placeholder='bunny@beautybunny.com' />
-    <Form.Input label='Password' id="password-inputL" placeholder='password' />
-    <Button id="login" onClick={Authenticate}>Login</Button>
-    <Message success header='Form Completed' content="You're logged in!" />
-  </Form>
-)
+import axios from 'axios';
+
+class LoginForm extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: ''
+    };
+  }
+
+  loginup = (e) => {
+    e.preventDefault();
+    console.log(this.state.email);
+    console.log(this.state.password);
+    const {email, password} = this.state;
+    axios.post("http://localhost:5000/api/login", { email, password})
+      .then((res) => {
+   console.log('the res', res.data);
+  }).catch((err)=>console.log('there was an error'));
+}
+
+
+
+  handleChange = (e) => {
+    const { value, name } = e.target;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  render() {
+    console.log('the state', this.state);
+    return (
+      <form onSubmit={ this.signup }>
+        <input 
+        label='Email'
+        id='email-inputS'
+        name='email'
+        placeholder='bunny@beautybunny.com'
+        onChange={ this.handleChange}
+      />
+      <input 
+        label='Password' 
+        id="password-inputS"
+        name='password' 
+        placeholder='password' 
+        onChange={this.handleChange}
+        />
+      <button type="submit">Login</button>
+    </form>
+    )
+  };
+}
+
 
 export default LoginForm;
-
-function Authenticate(){
-    //grabbing the form data and validating there is actually shit in it
-    var loginForm = document.getElementById("#login");
-    var emailInput= document.getElementById("#email-inputL");
-    var passwordInput = document.getElementById("#password-inputL");
-
-    loginForm.addEventListener("click", function(event){
-        event.preventDefault();
-        var userData = {
-            email: emailInput.val().trim(),
-            password: passwordInput.val().trim()
-        };
-
-        if (!userData.email || !userData.password){
-            return;
-        }
-
-        //if there is an email and password we run the loginUser function and then clear the form
-        loginUser(userData.email, userData.password);
-        emailInput.val("");
-        passwordInput.val("");
-    });
-
-    function loginUser(email, password){
-        axios.post("/api/login", {
-            email: email,
-            password: password
-        }).then(function(data){
-            window.location.replace(data);
-        }).catch(function(err){
-            console.log(err);
-        });
-    };
-};
-
-// export default AuthenticationForm;

@@ -4,7 +4,7 @@ import TabBuild from './tabs'
 
 const ModalExampleCloseIcon = () => (
   <Modal trigger={<Button> Login/Sign Up</Button>} closeIcon>
-    <Header icon='archive' content='Login/Sign Up' />
+    <Header icon='coffee' content='Login/Sign Up' />
     <Modal.Content>
       
       {<TabBuild />}

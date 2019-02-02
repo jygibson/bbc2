@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Homemade+Apple');
+
+.navbar {
+    background-color: #bca0bc;
+    margin-bottom: 0;
+    height: 50px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin:0;
+  }
+
+  li {
+      float: left;
+      margin-top: 5px;
+      color: white;
+  }
+
+br {
+    height: 1px;
+    margin: 0;
+}
+
+.header {
+    font-size: 20px;
+    color: #ffdcdd;
+    margin-top:2px;
+    margin-left:5px;
+    font-family: 'Homemade Apple';
+}
+
+.title {
+    margin-right: 700px;
+}
