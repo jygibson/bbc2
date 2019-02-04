@@ -1,8 +1,8 @@
 var express = require('express');
-var router = express.Router();
 var db = require("../models");
 var passport = require("../config/passport");
-var bcrypt = require('bcrypt-nodejs');
+var axios = require('axios');
+const cheerio= require("cheerio");
 
 module.exports = function(app) {
 
@@ -22,4 +22,18 @@ app.post("/api/login", passport.authenticate("local"), function(req, res) {
 
   res.json("/user");
 });
+
+var query = process.argv[2];
+
+app.get("/scrape", function (req, res){
+    axios.all([
+        axios.get('https://www.sephora.com/search?keyword='+query),
+        axios.get('https://www.peachandlily.com/search?q='+query),
+        axios.get('https://sokoglam.com/search?type=product&q='+query),
+    ]).then(axios.spread((sephRes, plRes, sgRes) => {
+        var $ = cheerio.load(sephRes.data + plRes.data + sgRes.data);
+        
+        console.log(plRes.data);
+        }));
+    });
 }

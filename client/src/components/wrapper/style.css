@@ -1,0 +1,15 @@
+.wrapper {
+  /* border-bottom: 1px;
+    border-bottom-style: solid;
+    border-color:#ffdcdd; */
+    height: 50%;
+    width: 50%;
+    padding-top: 175px;
+    padding-bottom: 0px;
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    justify-content: space-around;
+    align-content: flex-start;
+    overflow: auto;
+  }

@@ -1,17 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
 import Navbar from './components/NavBar';
-import ModalExampleCloseIcon from './components/authentication';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Index from "./pages/home";
+import search from "./pages/search";
+import user from "./pages/user";
 
-class App extends Component {
-  render() {
-    return (
+function App() {
+  return (
+    <Router>
       <div>
-<Navbar />
-<ModalExampleCloseIcon />
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Index} />
+          <Route exact path="/search" component={search} />
+          <Route exact path="/user/:id" component={user} />
+        </Switch>
       </div>
-    );
-  }
+    </Router>
+  );
 }
 
 export default App;

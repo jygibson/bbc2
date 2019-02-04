@@ -1,0 +1,20 @@
+
+.welcome-items {
+    font-family: 'Homemade Apple';
+    margin-right: 40px;
+    margin-left: 40px;
+    margin-bottom: 0px;
+}
+
+.welcome {
+    /* border-bottom: 10px;
+    border-style: solid;
+    border-color:#ffdcdd; */
+    margin: 0 auto;
+    padding-bottom: 0px;
+}
+
+a {
+    color: #bca0bc;
+    font-size: 20px
+}

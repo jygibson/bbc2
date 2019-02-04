@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button, Header, Modal } from 'semantic-ui-react'
+import { Icon, Button, Header, Modal } from 'semantic-ui-react'
 import TabBuild from './tabs'
 
 const ModalExampleCloseIcon = () => (
-  <Modal trigger={<Button> Login/Sign Up</Button>} closeIcon>
+  <Modal trigger={<Button basic color='purple' content='Login/Signup' />} closeIcon>
     <Header icon='coffee' content='Login/Sign Up' />
     <Modal.Content>
       

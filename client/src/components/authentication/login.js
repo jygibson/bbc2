@@ -36,7 +36,7 @@ class LoginForm extends Component {
   render() {
     console.log('the state', this.state);
     return (
-      <form onSubmit={ this.signup }>
+      <form onSubmit={ this.loginup }>
         <input 
         label='Email'
         id='email-inputS'
