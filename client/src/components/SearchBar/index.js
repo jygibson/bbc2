@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
-import { Input } from 'semantic-ui-react'
+import {Button, Icon, Input } from 'semantic-ui-react'
+import axios from 'axios'
+const cheerio= require("cheerio");
+
 
 export default class SearchBar extends Component {
 
@@ -11,7 +14,7 @@ export default class SearchBar extends Component {
       }
 
       queryChange = (e) => {
-        const { query, value } = e.target;
+        const { value } = e.target;
         this.setState({
           query: value
         });
@@ -19,6 +22,19 @@ export default class SearchBar extends Component {
 
     search = (e) => {
         e.preventDefault();
+        console.log('query is', this.state.query)
+        const { query } = this.state;
+        axios({
+            method: 'GET',
+            url: '/scrape',
+            params: { query },
+        })
+        .then(function(result) {
+            console.log(result);
+        })
+        .catch(function(error) {
+            console.log(error);
+        });
 
     }
 
@@ -27,11 +43,16 @@ export default class SearchBar extends Component {
     render(){
         console.log('the state', this.state);
             return(
-            <Input 
-            icon='search' 
+            <Input  
+            iconPosition='left'
             style={{width:"600px"}} 
-            placeholder='Search...'
-            onChange={this.queryChange} />
+            onChange={this.queryChange}
+            action={{ 
+                color: 'pink', 
+                icon: 'search',
+                onClick : this.search
+             }}
+                />
         )
     }
 }

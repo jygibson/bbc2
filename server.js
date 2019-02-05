@@ -8,6 +8,8 @@ const PORT = process.env.PORT || 5000;
 const user = require('./routes/api-routes');
 const htmlRoutes = require('./routes/html-routes');
 const app = express();
+const axios= require("axios");
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 require("./routes/api-routes.js")(app);
@@ -20,19 +22,6 @@ app.use(passport.session());
 if (process.env.NODE_ENV === "production"){
     app.use(express.static("client/build"));
 }
-// var query = process.argv[2];
-
-// app.get("/scrape", function (req, res){
-//     axios.all([
-//         axios.get('https://www.sephora.com/search?keyword='+query),
-//         axios.get('https://www.peachandlily.com/search?q='+query),
-//         axios.get('https://sokoglam.com/search?type=product&q='+query),
-//     ]).then(axios.spread((sephRes, plRes, sgRes) => {
-//         var $ = cheerio.load(sephRes.data + plRes.data + sgRes.data);
-        
-//         console.log(plRes.data);
-//         }));
-//     });
 
 db.sequelize.sync().then(function() {
     app.listen(PORT, function(){

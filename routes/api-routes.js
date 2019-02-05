@@ -23,17 +23,19 @@ app.post("/api/login", passport.authenticate("local"), function(req, res) {
   res.json("/user");
 });
 
-var query = process.argv[2];
 
 app.get("/scrape", function (req, res){
+  
+
+ const { query } = req.query;
+ console.log(query);
     axios.all([
-        axios.get('https://www.sephora.com/search?keyword='+query),
-        axios.get('https://www.peachandlily.com/search?q='+query),
-        axios.get('https://sokoglam.com/search?type=product&q='+query),
+        axios.get(`https://www.sephora.com/search?keyword=${query}`),
+        axios.get(`https://www.peachandlily.com/search?q=${query}`),
+        axios.get(`https://sokoglam.com/search?type=product&q=${query}`),
     ]).then(axios.spread((sephRes, plRes, sgRes) => {
         var $ = cheerio.load(sephRes.data + plRes.data + sgRes.data);
-        
-        console.log(plRes.data);
+        console.log(sgRes.data)
         }));
     });
 }
