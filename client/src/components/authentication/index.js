@@ -14,14 +14,7 @@ const ModalExampleCloseIcon = () => (
       {<TabBuild />}
 
     </Modal.Content>
-    {/* <Modal.Actions>
-      <Button color='red'>
-        <Icon name='remove' /> No
-      </Button>
-      <Button color='green'>
-        <Icon name='checkmark' /> Yes
-      </Button>
-    </Modal.Actions> */}
+
   </Modal>
 )
 

@@ -1,7 +1,10 @@
-import React, {Component} from 'react'
-import {Button, Icon, Input } from 'semantic-ui-react'
+import React, { Component } from 'react'
+import { Input } from 'semantic-ui-react'
 import axios from 'axios'
-const cheerio= require("cheerio");
+import ResultTile from '../ResultTile'
+
+
+
 
 
 export default class SearchBar extends Component {
@@ -9,16 +12,16 @@ export default class SearchBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          query: '',
+            query: '',
         };
-      }
+    }
 
-      queryChange = (e) => {
+    queryChange = (e) => {
         const { value } = e.target;
         this.setState({
-          query: value
+            query: value
         });
-      }
+    }
 
     search = (e) => {
         e.preventDefault();
@@ -29,34 +32,32 @@ export default class SearchBar extends Component {
             url: '/scrape',
             params: { query },
         })
-        .then(function(result) {
-            console.log(result);
-        })
-        .catch(function(error) {
-            console.log(error);
-        });
+            .then(function (response) {
+                console.log(response.data);
 
-    }
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+    };
 
 
 
-    render(){
+
+    render() {
         console.log('the state', this.state);
-            return(
-            <Input  
-            iconPosition='left'
-            style={{width:"600px"}} 
-            onChange={this.queryChange}
-            action={{ 
-                color: 'pink', 
-                icon: 'search',
-                onClick : this.search
-             }}
-                />
+        return (
+            <Input
+                iconPosition='left'
+                style={{ width: "600px" }}
+                onChange={this.queryChange}
+                action={{
+                    color: 'pink',
+                    icon: 'search',
+                    onClick: this.search
+                }}
+            />
         )
     }
 }
-
-// const SearchBar = () => <Input icon='search' style={{width:"600px"}} placeholder='Search...' />
-
-// export default SearchBar

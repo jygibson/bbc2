@@ -6,7 +6,7 @@ function Navbar() {
     <nav className="navbar navbar-dark bg-dark">
     <ul className="nav">
       <li className="title">
-      <p className="header">the beauty bunny collective </p>
+      <p className="nav-header">the beauty bunny collective </p>
       </li>
       <li className="nav-item"><p id="login">Login|Sign Up</p></li>
     </ul>
