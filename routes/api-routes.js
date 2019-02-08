@@ -18,6 +18,21 @@ module.exports = function (app) {
       });
   });
 
+  app.post("/api/favorite", function (req, res){
+    console.log(req.body);
+    db.UserFavorites.create({
+      email: this.User.email || null,
+      productName: req.body.title ,
+      productImage: req.body.img,
+      favorite: true,
+      tryLater: false,
+      link: req.body.link,
+    })
+    .then(function (dbFavPost){
+      res.json(dbFavPost);
+    })
+  })
+
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
 
     res.json("/user");

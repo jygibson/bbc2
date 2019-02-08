@@ -1,19 +1,32 @@
-import React, { Component } from "react";
-import { Card, Image } from 'semantic-ui-react';
-import SearchBar from '../SearchBar';
+import React from "react";
+import { Card, Image, Label, Icon } from 'semantic-ui-react';
 import './style.css';
 
 
 
-const CardExampleImageCard = () => (
-  <Card>
-    <Image src= '' />
-    <Card.Content>
-      <Card.Header>{}</Card.Header>
-      <Card.Meta>{}</Card.Meta>
-      <Card.Description>{}</Card.Description>
-    </Card.Content>
-  </Card>
-);
+const CardExampleImageCard = (props) => {
+  const { title, link, img, price } = props;
 
-export default CardExampleImageCard
+
+  
+
+  return (
+    <div id="cards">
+      <Card color="pink">
+        <Label>
+          <Icon name='heart' />
+        </Label>
+        <a href={link} rel="noopener noreferrer" target="_blank">
+          <Image src={img} />
+          <Card.Content>
+            <Card.Header as={'h6'}>{title}</Card.Header>
+            <Card.Description>{price}</Card.Description>
+          </Card.Content>
+          </a>
+        </Card>
+    </div>
+  );
+};
+
+
+export default CardExampleImageCard;

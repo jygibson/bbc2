@@ -3,7 +3,13 @@
     height: 90px;
 }
 
-.header {
-    font-size: 5px;
+#cards {
+    padding-right: 2px;
+    padding-left: 2px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    height: 400px;
+    width: 200px;
+    float: left;
 }
 
