@@ -3,7 +3,6 @@ var db = require("../models");
 var passport = require("../config/passport");
 var axios = require('axios');
 const cheerio = require("cheerio");
-const fs = require('fs');
 
 module.exports = function (app) {
 
@@ -21,12 +20,12 @@ module.exports = function (app) {
   app.post("/api/favorite", function (req, res){
     console.log(req.body);
     db.UserFavorites.create({
-      email: this.User.email || null,
-      productName: req.body.title ,
-      productImage: req.body.img,
+      // email: this.User.email || null,
+      productName: this.state.item.title ,
+      productImage: this.state.item.img,
       favorite: true,
       tryLater: false,
-      link: req.body.link,
+      link: this.state.item.link,
     })
     .then(function (dbFavPost){
       res.json(dbFavPost);
@@ -124,6 +123,18 @@ module.exports = function (app) {
       res.send(products)
     }
     ))
+  })
+
+  app.post("/api/favorite", function (req, res){
+    console.log(req.body);
+    db.UserFavorites.findAll({
+      where:{
+        email: this.User.email
+      }
+    })
+    .then(function (dbFavPopulate){
+      res.json(dbFavPopulate);
+    })
   })
 
 };
