@@ -19,6 +19,11 @@ app.use(session({secret:"keyboard cat", resave:true, saveUninitialized:true}));
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
+    next();
+  });
+
 if (process.env.NODE_ENV === "production"){
     app.use(express.static("client/build"));
 }

@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
-import { Input } from 'semantic-ui-react'
+import { Input , Card } from 'semantic-ui-react'
 import axios from 'axios'
-import ResultTile from '../ResultTile'
-
-
-
-
+import CardExampleImageCard from '../ResultTile'
 
 export default class SearchBar extends Component {
 
@@ -21,7 +17,8 @@ export default class SearchBar extends Component {
         this.setState({
             query: value
         });
-    }
+    };
+    
 
     search = (e) => {
         e.preventDefault();
@@ -32,22 +29,21 @@ export default class SearchBar extends Component {
             url: '/scrape',
             params: { query },
         })
-            .then(function (response) {
-                console.log(response.data);
+            .then(function (response){
+                console.log(response.data)
 
-            })
+                 })
             .catch(function (error) {
                 console.log(error);
             });
-
     };
-
 
 
 
     render() {
         console.log('the state', this.state);
         return (
+            <div>
             <Input
                 iconPosition='left'
                 style={{ width: "600px" }}
@@ -58,6 +54,8 @@ export default class SearchBar extends Component {
                     onClick: this.search
                 }}
             />
+                <CardExampleImageCard />
+                </div>
         )
     }
 }
