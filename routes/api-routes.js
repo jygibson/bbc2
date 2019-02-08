@@ -19,13 +19,13 @@ module.exports = function (app) {
 
   app.post("/api/favorite", function (req, res){
     console.log(req.body);
-    db.UserFavorites.create({
-      // email: this.User.email || null,
-      productName: this.state.item.title ,
-      productImage: this.state.item.img,
+    db.Favorites.create({
+      // email: req.body.email,
+      productName: req.body.title ,
+      productImage: req.body.img,
       favorite: true,
       tryLater: false,
-      link: this.state.item.link,
+      link: req.body.link,
     })
     .then(function (dbFavPost){
       res.json(dbFavPost);

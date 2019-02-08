@@ -1,7 +1,6 @@
 
 import React, { Component } from 'react'
 // import { Button, Form, Message } from 'semantic-ui-react'
-
 import axios from 'axios';
 
 class SignupForm extends Component {
@@ -18,12 +17,11 @@ class SignupForm extends Component {
     console.log(this.state.email);
     console.log(this.state.password);
     const {email, password} = this.state;
-    axios.post("http://localhost:5000/api/signup", { email, password})
+    axios.post("/api/signup", { email, password})
       .then((res) => {
    console.log('the res', res.data);
   }).catch((err)=>console.log('there was an error'));
 }
-
 
 
   handleChange = (e) => {
