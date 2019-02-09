@@ -9,7 +9,8 @@ const user = require('./routes/api-routes');
 const htmlRoutes = require('./routes/html-routes');
 const app = express();
 const axios= require("axios");
-
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Headers', 'Content-type,Authorization');
@@ -21,8 +22,6 @@ require("./routes/api-routes.js")(app);
 require("./routes/html-routes.js")(app);
 //creating sessions for passport to use of login status
 app.use(session({secret:"keyboard cat", resave:true, saveUninitialized:true}));
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 if (process.env.NODE_ENV === "production"){

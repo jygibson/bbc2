@@ -14,3 +14,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+#greeting {
+  font-family: 'Homemade Apple';
+  color: #ffdcdd;
+  font-size: 20px;
+}
+
+#useremail {
+  color: #002626;
+}

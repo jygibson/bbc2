@@ -10,7 +10,7 @@ class Index extends Component {
             <Row>
                 <Col size="md-6">
                 <Wrapper>
-                    <Welcome />
+                    <Welcome history={this.props.history} />
                 </Wrapper>
                 </Col>
             </Row>

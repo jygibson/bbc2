@@ -13,3 +13,11 @@
     float: left;
 }
 
+#label {
+    background-color: #ffdcdd;
+}
+
+#each-card {
+    color: #ffdcdd;
+}
+

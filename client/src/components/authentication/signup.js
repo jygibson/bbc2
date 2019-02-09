@@ -47,6 +47,7 @@ class SignupForm extends Component {
         id="password-inputS"
         name='password' 
         placeholder='password' 
+        type='password'
         onChange={this.handleChange}
         />
       <button type="submit">Sign Up</button>

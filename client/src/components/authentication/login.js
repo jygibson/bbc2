@@ -18,9 +18,13 @@ class LoginForm extends Component {
     console.log(this.state.email);
     console.log(this.state.password);
     const {email, password} = this.state;
-    axios.post("http://localhost:5000/api/login", { email, password})
+    axios.post("/api/login", { email, password})
       .then((res) => {
    console.log('the res', res.data);
+   localStorage.setItem('id', res.data.id)
+   localStorage.setItem('email', res.data.email)
+   this.props.history.push('/user/'+ res.data.id)   
+
   }).catch((err)=>console.log('there was an error'));
 }
 
@@ -48,7 +52,8 @@ class LoginForm extends Component {
         label='Password' 
         id="password-inputS"
         name='password' 
-        placeholder='password' 
+        placeholder='password'
+        type='password' 
         onChange={this.handleChange}
         />
       <button type="submit">Login</button>

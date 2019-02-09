@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Input } from 'semantic-ui-react'
 import axios from 'axios'
 import CardExampleImageCard from '../ResultTile'
+import Loading from './loading'
 
 export default class SearchBar extends Component {
   constructor(props) {
@@ -40,28 +41,29 @@ export default class SearchBar extends Component {
 
 
 
-    render() {
-        console.log('the state', this.state);
-        return (
-          <div>
-            <Input
-              iconPosition='left'
-              style={{ width: "600px" }}
-              onChange={this.queryChange}
-              action={{
-                color: 'pink',
-                icon: 'search',
-                onClick: this.search
-              }}
-            />
-            <br></br>
-            <br></br>
-    {
-            this.state.items.map((item, key) => (
-              <CardExampleImageCard key={`${item.title}--${key}`} {...item} />
-            ))
-    }
-          </div>
-        )
-      }
-    }
+  render() {
+    console.log('the state', this.state);
+    return (
+      <div>
+        <Input
+          iconPosition='left'
+          style={{ width: "600px" }}
+          onChange={this.queryChange}
+          action={{
+            color: 'pink',
+            icon: 'search',
+            onClick: this.search
+          }}
+        />
+        <br></br>
+        <br></br>
+        {
+          this.state.items.map((item, key) => (
+            <CardExampleImageCard email=
+              {localStorage.getItem('email')} key={`${item.title}--${key}`} {...item} />
+          ))
+        }
+      </div>
+    )
+  }
+}

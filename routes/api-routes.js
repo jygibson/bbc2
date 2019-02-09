@@ -18,9 +18,9 @@ module.exports = function (app) {
   });
 
   app.post("/api/favorite", function (req, res){
-    console.log(req.body);
+    console.log('user adding favorite' , req.user);
     db.Favorites.create({
-      // email: req.body.email,
+      email: req.body.email,
       productName: req.body.title ,
       productImage: req.body.img,
       favorite: true,
@@ -33,8 +33,8 @@ module.exports = function (app) {
   })
 
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
-
-    res.json("/user");
+    // console.log(req.user);
+    res.json(req.user);
   });
 
   app.get("/scrape", function (req, res) {
@@ -125,11 +125,11 @@ module.exports = function (app) {
     ))
   })
 
-  app.post("/api/favorite", function (req, res){
-    console.log(req.body);
-    db.UserFavorites.findAll({
+  app.get("/api/favorite", function (req, res){
+    console.log('this is the request for favorites' , req.query);
+    db.Favorites.findAll({
       where:{
-        email: this.User.email
+        email: req.query.userEmail
       }
     })
     .then(function (dbFavPopulate){
