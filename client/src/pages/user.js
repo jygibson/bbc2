@@ -41,6 +41,7 @@ export default class User extends Component {
                             <br></br>
                                 <br></br>
                                 If you want to start a new search, click <Link to={"/search"}>here</Link></p>
+                                <br></br>
                         </Col>
                     </Row>
                     <br></br>

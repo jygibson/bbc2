@@ -4,7 +4,7 @@ import './style.css';
 
 
 const FavoritesCard = (props) => {
-  const { title, link, img, price } = props;
+  const { productName, link, productImage, price } = props;
 
     return (
       <div id="cards">
@@ -16,9 +16,9 @@ const FavoritesCard = (props) => {
             <Icon name='heart' />
           </Label>
           <a href={link} rel="noopener noreferrer" target="_blank">
-            <Image src={img} />
+            <Image src={productImage} />
             <Card.Content>
-              <Card.Header as={"h4"}>{title}</Card.Header>
+              <Card.Header as={"h4"}>{productName}</Card.Header>
               <Card.Description>{price}</Card.Description>
             </Card.Content>
           </a>
