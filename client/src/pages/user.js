@@ -31,6 +31,10 @@ export default class User extends Component {
             this.loadFavorites()
         }
     
+    componentDidUpdate(){
+            this.loadFavorites()
+        }
+    
 
     render() {
         return (

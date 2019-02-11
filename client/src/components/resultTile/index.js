@@ -1,24 +1,30 @@
-import React from "react";
+import React, {Component} from "react";
 import { Card, Image, Label, Icon } from 'semantic-ui-react';
 import './style.css';
 import axios from 'axios';
 
 
+
 const CardExampleImageCard = (props) => {
   const { title, link, img, price } = props;
+
+
 
   function saveFavorite(e) {
     e.preventDefault();
     axios.post("/api/favorite", { ...props })
     .then((res) => {
       console.log('favorite saved', res.data);
-      return(
-        <Label id="label">
-          <Icon name='heart' color='pink' />
-        </Label>
-      )})
+    })
     .catch((err) => console.log('there was an error: ', err));
-  }
+  };
+
+function renderIcon() {
+  console.log('clicked to save favorite')
+    return (
+      <Icon name='heart' color='pink'/>
+    )
+}
 
     return (
       <div id="cards">
@@ -27,7 +33,10 @@ const CardExampleImageCard = (props) => {
           >
           <Label id="label"
             onClick={saveFavorite}>
-            <Icon name='heart' />
+            <Icon 
+            name='heart'
+            onClick={renderIcon}
+             />
           </Label>
           <a href={link} rel="noopener noreferrer" target="_blank">
             <Image src={img} />

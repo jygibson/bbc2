@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input } from 'semantic-ui-react'
+import { Input, Label, Icon } from 'semantic-ui-react'
 import axios from 'axios'
 import CardExampleImageCard from '../ResultTile'
 import Loading from './loading'
@@ -38,7 +38,6 @@ export default class SearchBar extends Component {
       .catch(error => { console.log(error) });
 
   };
-
 
 
   render() {
