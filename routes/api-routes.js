@@ -32,9 +32,27 @@ module.exports = function (app) {
     })
   })
 
+  app.post("/api/destroy/", function (req, res){
+    console.log('user deleting favorite' , req.body);
+    db.Favorites.destroy({
+      where:{
+        email: req.body.email,
+        id: req.body.id
+      }
+    })
+    .then(function (dbFavDestroy){
+      res.json(dbFavDestroy);
+      console.log('the favorite has been destroyed')
+    })
+  })
+
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
-    // console.log(req.user);
     res.json(req.user);
+  });
+
+  app.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/');
   });
 
   app.get("/scrape", function (req, res) {
@@ -134,6 +152,7 @@ module.exports = function (app) {
     })
     .then(function (dbFavPopulate){
       res.json(dbFavPopulate);
+      console.log('this has been added to favorites')
     })
   })
 

@@ -10,7 +10,7 @@ const ModalExampleCloseIcon = (props) =>
 
   
   <Modal 
-  trigger={<Button basic color='purple' content='Login/Signup' />} 
+  trigger={<Button basic content='Login/Signup' />} 
   closeIcon
   show={{ size: "mini", open: true }}
   >

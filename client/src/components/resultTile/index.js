@@ -24,7 +24,6 @@ const CardExampleImageCard = (props) => {
       <div id="cards">
         <Card 
           id="each-card" 
-          color ="pink"
           >
           <Label id="label"
             onClick={saveFavorite}>

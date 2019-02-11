@@ -13,10 +13,6 @@ export default class User extends Component {
         };
     }
 
-    componentDidMount() {
-        this.loadFavorites();
-    }
-
     loadFavorites = () => {
         const userEmail = ( localStorage.getItem('email') );
         axios({
@@ -30,6 +26,11 @@ export default class User extends Component {
             })
             .catch(error => { console.log(error) });
     };
+
+    componentDidMount() {
+            this.loadFavorites()
+        }
+    
 
     render() {
         return (
