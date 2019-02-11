@@ -1,64 +1,64 @@
-import React from "react";
+import React, {Component} from "react";
 import './style.css';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+import axios from 'axios';
 
-// class Navbar extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       isLoggedIn: false
-//     }
-//   }
+class Navbar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoggedIn: false
+    }
+  }
 
-//   loggedIn = (req, res, next) => {
-//     if (req.user) {
-//       return (
-//         <Link to={"/logout"}>Logout</Link>
-//         )
-//     } else {
-//       return (
-//         <Link to={"/search"}>Sign In/Create Account</Link>
-//         )
-//     }
-// }
+  logout = (e) => {
+    e.preventDefault();
+    console.log('logout was clicked');
+    const {email, password} = this.state;
+    axios.get("/logout", { email, password})
+      .then((res) => {
+   console.log('logged out user', res.data);
+   localStorage.clear();
 
-// componentDidMount() {
-//   this.loggedIn();
-// }
-
-// render(){
-// return(
-//   <div>
-//         <nav className="navbar navbar-dark bg-dark">
-//       <ul className="nav">
-//         <li className="title">
-//           <p className="nav-header"><Link to={"/"}> the beauty bunny collective </Link> </p>
-//         </li>
-//         <li className="nav-item"><p id="login"></p></li>
-//       </ul>
-//     </nav>
-//   </div>
-// )
-// }
-
-
-//   };
+  })
+  .catch((err)=>console.log('there was an error', err));
+}
 
 
 
-function Navbar() {
-  return (
-    <nav className="navbar navbar-dark bg-dark">
+render(){
+return(
+  <div>
+        <nav className="navbar navbar-dark bg-dark">
       <ul className="nav">
         <li className="title">
           <p className="nav-header"><Link to={"/"}> the beauty bunny collective </Link> </p>
         </li>
-        <li className="nav-item">
-        <p className="nav-header" id="name"><Link to={"/user/:id"}> {localStorage.getItem('email')}'s favorites </Link></p>
-        </li>
+        <li className="nav-item"><p id="login"><Link onClick={this.logout} to={"/"}>Logout</Link></p></li>
       </ul>
     </nav>
-  );
+  </div>
+)
 }
+
+
+  };
+
+
+
+// function Navbar() {
+//   return (
+//     <nav className="navbar navbar-dark bg-dark">
+//       <ul className="nav">
+//         <li className="title">
+//           <p className="nav-header"><Link to={"/"}> the beauty bunny collective </Link> </p>
+//         </li>
+//         <li className="nav-item">
+//         <p className="nav-header" id="name"><Link to={"/user/:id"}> {localStorage.getItem('email')}'s favorites </Link></p>
+//         </li>
+//       </ul>
+//     </nav>
+//   );
+// }
 
 export default Navbar;
