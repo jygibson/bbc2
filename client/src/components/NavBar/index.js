@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import './style.css';
-import { Link, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
 import axios from 'axios';
 
 class Navbar extends Component {
@@ -15,11 +15,11 @@ class Navbar extends Component {
     e.preventDefault();
     console.log('logout was clicked');
     const {email, password} = this.state;
-    axios.get("/logout", { email, password})
+    axios.post("/logout", { email, password})
       .then((res) => {
    console.log('logged out user', res.data);
    localStorage.clear();
-
+   this.props.history.push('/')
   })
   .catch((err)=>console.log('there was an error', err));
 }
@@ -34,7 +34,7 @@ return(
         <li className="title">
           <p className="nav-header"><Link to={"/"}> the beauty bunny collective </Link> </p>
         </li>
-        <li className="nav-item"><p id="login"><Link onClick={this.logout} to={"/"}>Logout</Link></p></li>
+        <li className="nav-item"><Link to={"/"} onClick={this.logout}>Logout</Link><Link to={"/user/:id"}> | My Favorites</Link></li>
       </ul>
     </nav>
   </div>
@@ -43,6 +43,7 @@ return(
 
 
   };
+
 
 
 
@@ -61,4 +62,4 @@ return(
 //   );
 // }
 
-export default Navbar;
+export default withRouter(Navbar);

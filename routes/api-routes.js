@@ -50,7 +50,7 @@ module.exports = function (app) {
     res.json(req.user);
   });
 
-  app.get('/logout', function(req, res){
+  app.post('/logout', function(req, res){
     req.logout();
     res.redirect("/");
   });
