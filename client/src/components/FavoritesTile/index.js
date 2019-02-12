@@ -1,6 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import { Card, Image, Label, Icon } from 'semantic-ui-react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './style.css';
 import axios from 'axios';
 

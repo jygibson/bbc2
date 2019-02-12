@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Input, Label, Icon } from 'semantic-ui-react'
+import { Input } from 'semantic-ui-react'
 import axios from 'axios'
 import CardExampleImageCard from '../ResultTile'
 import Loading from './loading'
@@ -43,10 +43,12 @@ export default class SearchBar extends Component {
   render() {
     console.log('the state', this.state);
     return (
-      <div>
-        <Input
-          iconPosition='left'
-          style={{ width: "600px" }}
+      <div className="main">
+        <div id="search-bar">
+        <Input id="glass"
+          style={{ 
+            width: "600px"
+           }}
           onChange={this.queryChange}
           action={{
             color: 'pink',
@@ -54,14 +56,17 @@ export default class SearchBar extends Component {
             onClick: this.search
           }}
         />
+        </div>
         <br></br>
         <br></br>
+        <div id="result-tiles">
         {
           this.state.items.map((item, key) => (
             <CardExampleImageCard email=
               {localStorage.getItem('email')} key={`${item.title}--${key}`} {...item} />
           ))
         }
+        </div>
       </div>
     )
   }

@@ -51,6 +51,7 @@ module.exports = function (app) {
   });
 
   app.post('/logout', function(req, res){
+    console.log(req.user)
     req.logout();
     res.redirect("/");
   });

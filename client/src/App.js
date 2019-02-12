@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
 import Navbar from './components/NavBar';
-import { BrowserRouter as Router, Route, Switch, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import index from "./pages/home";
 import search from "./pages/search";
 import user from "./pages/user";
+import "./index.css";
 
 function App() {
   return (

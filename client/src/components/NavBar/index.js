@@ -14,8 +14,7 @@ class Navbar extends Component {
   logout = (e) => {
     e.preventDefault();
     console.log('logout was clicked');
-    const {email, password} = this.state;
-    axios.post("/logout", { email, password})
+    axios.post("/logout")
       .then((res) => {
    console.log('logged out user', res.data);
    localStorage.clear();
@@ -27,14 +26,17 @@ class Navbar extends Component {
 
 
 render(){
+
 return(
   <div>
         <nav className="navbar navbar-dark bg-dark">
       <ul className="nav">
         <li className="title">
-          <p className="nav-header"><Link to={"/"}> the beauty bunny collective </Link> </p>
+          <p className="nav-header"><Link id="nav-title" to={"/"}> the beauty bunny collective </Link> </p>
         </li>
-        <li className="nav-item"><Link to={"/"} onClick={this.logout}>Logout</Link><Link to={"/user/:id"}> | My Favorites</Link></li>
+        <li className="nav-header">
+        <p className="work-please"><Link id="user-options" to={"/"} onClick={this.logout}>Logout</Link><Link id="user-options" to={"/user/:id"}> | My Favorites</Link></p>
+        </li>
       </ul>
     </nav>
   </div>

@@ -3,6 +3,7 @@ import { Col, Row, Container } from "../components/grid";
 import Wrapper from "../components/wrapper";
 import { Link } from "react-router-dom";
 import FavoritesCard from '../components/FavoritesTile'
+import '../index.css'
 import axios from 'axios'
 
 export default class User extends Component {

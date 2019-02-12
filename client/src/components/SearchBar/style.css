@@ -1,3 +1,12 @@
-.input {
-    width: 400px;
+
+#search-bar {
+    margin: 0 auto;
+}
+
+.main{
+    width: 50px;
+}
+
+#glass {
+    color: black;
 }

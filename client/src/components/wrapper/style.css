@@ -1,9 +1,6 @@
 .wrapper {
-  /* border-bottom: 1px;
-    border-bottom-style: solid;
-    border-color:#ffdcdd; */
-    /* height: 700px; */
-    width: 95%;
+    width: 700px;
+    height: 100%;
     padding-top: 75px;
     padding-bottom: 0px;
     display: flex;
@@ -11,5 +8,5 @@
     margin: 0 auto;
     justify-content: space-around;
     align-content: flex-start;
-    overflow: auto;
+    /* overflow: auto; */
   }

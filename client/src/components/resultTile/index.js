@@ -1,4 +1,4 @@
-import React, {Component} from "react";
+import React from "react";
 import { Card, Image, Label, Icon } from 'semantic-ui-react';
 import './style.css';
 import axios from 'axios';
@@ -15,6 +15,7 @@ const CardExampleImageCard = (props) => {
     axios.post("/api/favorite", { ...props })
     .then((res) => {
       console.log('favorite saved', res.data);
+      renderIcon();
     })
     .catch((err) => console.log('there was an error: ', err));
   };
