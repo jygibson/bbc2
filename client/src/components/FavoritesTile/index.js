@@ -19,9 +19,9 @@ const FavoritesCard = (props) => {
   }
 
   return (
-    <div id="cards">
+    <div id="favorites-cards">
       <Card
-        id="each-card"
+        id="each-favorites-card"
       >
         <Label
           id="label"
@@ -29,10 +29,10 @@ const FavoritesCard = (props) => {
           <Icon name='heart' color='pink' />
         </Label>
         <a href={link} rel="noopener noreferrer" target="_blank">
-          <Image src={productImage} />
-          <Card.Content>
-            <Card.Header as={"h4"}>{productName}</Card.Header>
-            <Card.Description>{price}</Card.Description>
+          <Image id='image' src={productImage} />
+          <Card.Content id='content'>
+            <Card.Header textAlign='center' as={"h5"}>{productName}</Card.Header>
+            <Card.Description textAlign='center'as={"h6"}>{price}</Card.Description>
           </Card.Content>
         </a>
       </Card>

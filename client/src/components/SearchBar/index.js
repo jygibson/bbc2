@@ -3,6 +3,7 @@ import { Input } from 'semantic-ui-react'
 import axios from 'axios'
 import CardExampleImageCard from '../ResultTile'
 import Loading from './loading'
+import './style.css'
 
 export default class SearchBar extends Component {
   constructor(props) {
@@ -34,8 +35,9 @@ export default class SearchBar extends Component {
       .then(response => {
         console.log(response.data);
         this.setState({ items: [...response.data] });
+        
       })
-      .catch(error => { console.log(error) });
+      .catch(error => { console.log('this is the search bar' , error) });
 
   };
 
@@ -45,27 +47,29 @@ export default class SearchBar extends Component {
     return (
       <div className="main">
         <div id="search-bar">
-        <Input id="glass"
+          <Input id="glass"
+          icon='search'
           style={{ 
             width: "600px"
            }}
           onChange={this.queryChange}
-          action={{
-            color: 'pink',
-            icon: 'search',
-            onClick: this.search
-          }}
-        />
+          onClick={this.search}
+          // action={{
+          //   color: 'grey',
+          //   icon: 'search',
+          //   onClick: this.search,
+          // }}
+          />
         </div>
         <br></br>
         <br></br>
         <div id="result-tiles">
-        {
-          this.state.items.map((item, key) => (
-            <CardExampleImageCard email=
-              {localStorage.getItem('email')} key={`${item.title}--${key}`} {...item} />
-          ))
-        }
+          {
+            this.state.items.map((item, key) => (
+              <CardExampleImageCard email=
+                {localStorage.getItem('email')} key={`${item.title}--${key}`} {...item} />
+            ))
+          }
         </div>
       </div>
     )

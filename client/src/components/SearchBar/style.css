@@ -1,12 +1,13 @@
 
-#search-bar {
-    margin: 0 auto;
-}
-
-.main{
-    width: 50px;
-}
-
 #glass {
-    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+Input.icon {
+    cursor: pointer;  
+}
+
+#result-tiles{
+    background-color: #ffdcdd;
 }

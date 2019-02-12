@@ -23,7 +23,7 @@ const CardExampleImageCard = (props) => {
     return (
       <div id="cards">
         <Card 
-          id="each-card" 
+          id="each-card"
           >
           <Label id="label"
             onClick={saveFavorite}>
@@ -32,10 +32,10 @@ const CardExampleImageCard = (props) => {
              />
           </Label>
           <a href={link} rel="noopener noreferrer" target="_blank">
-            <Image src={img} />
-            <Card.Content>
-              <Card.Header as={"h4"}>{title}</Card.Header>
-              <Card.Description>{price}</Card.Description>
+            <Image id='image' src={img} />
+            <Card.Content id='content'>
+              <Card.Header textAlign='center' as={"h5"}>{title}</Card.Header>
+              <Card.Description textAlign='center'as={"h6"}>{price}</Card.Description>
             </Card.Content>
           </a>
         </Card>

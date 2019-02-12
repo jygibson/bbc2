@@ -1,0 +1,32 @@
+#favorites-cards {
+    padding-right: 4px;
+    padding-left: 4px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    border-color: #bca0bc;
+    border: 2px;
+    height: 250px;
+    width: 150px;
+    float: left;
+    background-color: #bca0bc;
+}
+
+#content{
+    height:60px;
+}
+
+h5 {
+    color: #002626;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+h6 {
+    margin: 0px;
+    color: #002626;
+}
+
+#image {
+    height: 150px;
+    width:150px;
+}
