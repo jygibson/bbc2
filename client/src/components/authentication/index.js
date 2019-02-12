@@ -1,16 +1,17 @@
 import React from 'react'
 import { Button, Header, Modal } from 'semantic-ui-react'
 import TabBuild from './tabs'
+import { Link } from "react-router-dom";
+import './style.css';
 
 const ModalExampleCloseIcon = (props) => 
 {
   console.log("Close Icon props: ", props);
   
  return (
-
   
   <Modal 
-  trigger={<Button basic content='Login/Signup' />} 
+  trigger={<p id='login'>Login/Sign Up</p>} 
   closeIcon
   show={{ size: "mini", open: true }}
   >

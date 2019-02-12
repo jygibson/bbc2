@@ -15,17 +15,10 @@ const CardExampleImageCard = (props) => {
     axios.post("/api/favorite", { ...props })
     .then((res) => {
       console.log('favorite saved', res.data);
-      renderIcon();
     })
     .catch((err) => console.log('there was an error: ', err));
   };
-
-function renderIcon() {
-  console.log('clicked to save favorite')
-    return (
-      <Icon name='heart' color='pink'/>
-    )
-}
+ 
 
     return (
       <div id="cards">
@@ -34,9 +27,8 @@ function renderIcon() {
           >
           <Label id="label"
             onClick={saveFavorite}>
-            <Icon 
+            <Icon id="heart"            
             name='heart'
-            onClick={renderIcon}
              />
           </Label>
           <a href={link} rel="noopener noreferrer" target="_blank">

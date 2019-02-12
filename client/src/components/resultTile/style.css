@@ -8,16 +8,20 @@
     padding-left: 2px;
     margin-top: 5px;
     margin-bottom: 5px;
-    height: 400px;
-    width: 200px;
+    height: 300px;
+    width: 150px;
     float: left;
 }
 
-#label {
-    background-color: #ffdcdd;
+
+#heart:active {
+color: pink;
+} 
+
+#heart:hover{
+    color: pink;
 }
 
-#each-card {
-    color: #ffdcdd;
+.clicked {
+    color:pink;
 }
-
