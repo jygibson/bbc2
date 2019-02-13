@@ -23,7 +23,6 @@
     "client": "cd client && yarn start",
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
-    "prestart":"cd client && yarn build",
     "start":"node server"
   },
   
