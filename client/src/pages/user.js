@@ -43,11 +43,13 @@ export default class User extends Component {
                 <Wrapper>
                     <Row>
                         <Col size="md-8">
-                            <p id="greeting">Hi <span id="useremail"> {localStorage.getItem('email')}</span>! Check out your favorites below.
+                            <p id="greeting">Hi <span id="useremail"> {localStorage.getItem('email')}</span>!
                             <br></br>
-                                <br></br>
+                            <br></br>
+                            <p id="welcome-div"> Check out your favorites below.
+                            <br></br>
                                 If you want to start a new search, click <Link to={"/search"}>here</Link></p>
-                                <br></br>
+                                <br></br></p>
                         </Col>
                     </Row>
                     <br></br>

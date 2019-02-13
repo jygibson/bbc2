@@ -19,10 +19,15 @@ code {
 
 #greeting {
   font-family: 'Homemade Apple';
-  color: #ffdcdd;
-  font-size: 15px;
+  color:  #002626;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
 }
 
-#useremail {
-  color: #002626;
+#welcome-div{
+  font-family: 'Montserrat', sans-serif;
+  color:  #002626;
+  font-size: 15px;
+  text-align: center;
 }

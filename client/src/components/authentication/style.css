@@ -3,3 +3,27 @@
     font-family: 'Homemade Apple';
     color:  #bca0bc;
 }
+
+#modal{
+    height: 250px;
+    width: 250px;
+    background-color: #002626;
+}
+
+#modal-content{
+    background-color: #002626;
+}
+
+#header{
+    color: #002626;
+    text-align: center;
+    background-color: #ffdcdd;
+}
+
+#login-modal{
+background-color: #bca0bc;
+}
+
+#signup{
+ background-color: #ffdcdd;
+}

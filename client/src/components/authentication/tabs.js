@@ -12,8 +12,8 @@ import LoginForm from './login'
 
     console.log("this is the tabs props" , props.history)
     const panes = [
-      { menuItem: 'Signup', render: () => <Tab.Pane> <SignupForm /></Tab.Pane> },
-      { menuItem: 'Login', render: () => <Tab.Pane> <LoginForm history={props.history} /></Tab.Pane> },
+      { menuItem: 'Signup', render: () => <Tab.Pane id="signup"> <SignupForm history={props.history} /></Tab.Pane> },
+      { menuItem: 'Login', render: () => <Tab.Pane id="login-modal"> <LoginForm history={props.history} /></Tab.Pane> },
     ]
 
     return <Tab panes={panes} />

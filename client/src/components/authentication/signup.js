@@ -20,6 +20,9 @@ class SignupForm extends Component {
     axios.post("/api/signup", { email, password})
       .then((res) => {
    console.log('the res', res.data);
+   localStorage.setItem('id', res.data.id)
+   localStorage.setItem('email', res.data.email)
+   this.props.history.push('/user/'+ res.data.id)
   }).catch((err)=>console.log('there was an error'));
 }
 
@@ -50,7 +53,7 @@ class SignupForm extends Component {
         type='password'
         onChange={this.handleChange}
         />
-      <button type="submit">Sign Up</button>
+      <button type="submit" id='signup'>Sign Up</button>
     </form>
     )
   };

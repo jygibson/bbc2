@@ -56,7 +56,7 @@ class LoginForm extends Component {
         type='password' 
         onChange={this.handleChange}
         />
-      <button type="submit">Login</button>
+      <button type="submit" id='login-modal'>Login</button>
     </form>
     )
   };

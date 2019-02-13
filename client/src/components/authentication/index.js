@@ -10,13 +10,13 @@ const ModalExampleCloseIcon = (props) =>
   
  return (
   
-  <Modal 
+  <Modal id='modal'
   trigger={<p id='login'>Login/Sign Up</p>} 
   closeIcon
   show={{ size: "mini", open: true }}
   >
-    <Header icon='coffee' content='Login/Sign Up' />
-    <Modal.Content>
+    <Header id='header' icon='heart outline' content='Login/Sign Up' />
+    <Modal.Content id='modal-content'>
       
       {<TabBuild history={props.history} />}
 
