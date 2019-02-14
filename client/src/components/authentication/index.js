@@ -1,7 +1,6 @@
 import React from 'react'
-import { Button, Header, Modal } from 'semantic-ui-react'
+import { Header, Modal } from 'semantic-ui-react'
 import TabBuild from './tabs'
-import { Link } from "react-router-dom";
 import './style.css';
 
 const ModalExampleCloseIcon = (props) => 

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Input } from 'semantic-ui-react'
 import axios from 'axios'
 import CardExampleImageCard from '../ResultTile'
-import Loading from './loading'
+// import Loading from './loading'
 import './style.css'
 
 export default class SearchBar extends Component {

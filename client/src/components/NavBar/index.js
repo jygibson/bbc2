@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import './style.css';
-import { BrowserRouter as Router, Route, Switch, Link, withRouter } from 'react-router-dom';
+import { BrowserRouter as Router, Link, withRouter } from 'react-router-dom';
 import ModalExampleCloseButton from "../authentication";
 import axios from 'axios';
 
