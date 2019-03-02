@@ -1,3 +1,7 @@
+Beauty Bunny Collective
+
+This repo is my final project for my coding bootcamp, created using React, passport.js, Semantic UI for React, Axios.js, Express.js, MySQL, and Cheerio.js. Based around my passion for skincare, this app scrapes several beauty shopping sites and displays the results of a user's search, so that a user can shop multiple sites at one time. Users are able to create accounts and save their favorites for future purchase. 
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
