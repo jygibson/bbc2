@@ -7,17 +7,19 @@ import axios from 'axios';
 class CardExampleImageCard extends React.Component{
   constructor(props){
     super(props);
+
     this.state={
       active: false,
       firstClick: true
     };
+
   };
 
   
     saveFavorite=(e)=> {
       e.preventDefault();
-      if (this.state.firstClick == true){
-      axios.post("/api/favorite")
+      if (this.state.firstClick === true){
+      axios.post("/api/favorite", this.props)
       .then((res) => {
         console.log(this.state)
         console.log('favorite saved', res.data);
@@ -29,8 +31,7 @@ class CardExampleImageCard extends React.Component{
       })
       .catch((err) => console.log('there was an error: ', err));
     } else {
-      e.preventDefault();
-      axios.post("/api/destroy/")
+      axios.post("/api/destroy2/", this.props)
         .then((res) => {
           console.log('favorite deleted', res.data);
           this.setState(prevState => ({
@@ -51,7 +52,7 @@ class CardExampleImageCard extends React.Component{
           <Label id="label"
             onClick={this.saveFavorite}>
             <Icon id="heart" 
-            color={this.state.active == true ? 'pink': null}           
+            color={this.state.active === true ? 'pink': null}           
             name='heart'
              />
           </Label>

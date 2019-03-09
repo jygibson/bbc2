@@ -46,6 +46,20 @@ module.exports = function (app) {
     })
   })
 
+  app.post("/api/destroy2/", function (req, res){
+    console.log('user deleting favorite from search screen' , req.body);
+    db.Favorites.destroy({
+      where:{
+        email: req.body.email,
+        productName: req.body.title
+      }
+    })
+    .then(function (dbFavDestroy){
+      res.json(dbFavDestroy);
+      console.log('the favorite has been destroyed via search screen')
+    })
+  })
+
   app.post("/api/login", passport.authenticate("local"), function (req, res) {
     res.json(req.user);
   });
@@ -95,7 +109,7 @@ module.exports = function (app) {
 
         var title = $(this).find('.product__title').text();
         var link = 'https://sokoglam.com' + $(this).find('.product__title > a').attr('href');
-        var img = 'https:' + $(this).find('.product__image > a > img').attr('src');
+        var img = 'https:' + $(this).find('.product__image > div > a > img').attr('src');
         var price = $(this).find('.ProductPrice').text();
 
         if (!title || !link || !img) return;

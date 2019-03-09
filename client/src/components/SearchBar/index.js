@@ -35,11 +35,17 @@ export default class SearchBar extends Component {
       .then(response => {
         console.log(response.data);
         this.setState({ items: [...response.data] });
-        
+
       })
-      .catch(error => { console.log('this is the search bar' , error) });
+      .catch(error => { console.log('this is the search bar', error) });
 
   };
+
+  searchOnEnter = event => {
+    if (event.charCode === 13) {
+      {this.search(event)}
+    } else return;
+  }
 
 
   render() {
@@ -48,12 +54,14 @@ export default class SearchBar extends Component {
       <div className="main">
         <div id="search-bar">
           <Input id="glass"
-          icon='search'
-          style={{ 
-            width: "600px"
-           }}
-          onChange={this.queryChange}
-          onClick={this.search}
+            icon='search'
+            style={{
+              width: "600px"
+            }}
+            onChange={this.queryChange}
+            onClick={this.search}
+            onKeyPress={this.searchOnEnter}
+          // loading= 'true'
           // action={{
           //   color: 'grey',
           //   icon: 'search',
