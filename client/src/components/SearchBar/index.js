@@ -56,7 +56,8 @@ export default class SearchBar extends Component {
           <Input id="glass"
             icon='search'
             style={{
-              width: "600px"
+              width: "600px",
+              cursor: "pointer"
             }}
             onChange={this.queryChange}
             onClick={this.search}

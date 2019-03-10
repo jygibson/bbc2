@@ -32,7 +32,7 @@ h6 {
     width:150px;
 }
 
-
+/* 
 #heart:active {
 color: pink;
 } 
@@ -43,9 +43,10 @@ color: pink;
 
 .clicked {
     color:pink;
-}
+} */
 
 .ui.label {
     margin: 0;
+    cursor: pointer;
     /* background-color: #ffdcdd; */
 }

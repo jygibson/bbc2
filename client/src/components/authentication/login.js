@@ -23,6 +23,7 @@ class LoginForm extends Component {
    console.log('the res', res.data);
    localStorage.setItem('id', res.data.id)
    localStorage.setItem('email', res.data.email)
+   console.log('the props history on login.js', this.props.history)
    this.props.history.push('/user/'+ res.data.id)   
 
   }).catch((err)=>console.log('there was an error'));
