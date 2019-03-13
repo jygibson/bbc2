@@ -26,7 +26,11 @@ class LoginForm extends Component {
    console.log('the props history on login.js', this.props.history)
    this.props.history.push('/user/'+ res.data.id)   
 
-  }).catch((err)=>console.log('there was an error'));
+  }).catch((err)=>{
+    console.log('there was an error', err)
+    document.getElementById("error-message").textContent='Wrong password, please try again!';
+  }
+  );
 }
 
 

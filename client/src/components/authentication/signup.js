@@ -23,7 +23,10 @@ class SignupForm extends Component {
    localStorage.setItem('id', res.data.id)
    localStorage.setItem('email', res.data.email)
    this.props.history.push('/user/'+ res.data.id)
-  }).catch((err)=>console.log('there was an error'));
+  }).catch((err)=>{
+    console.log('there was an error', err)
+    document.getElementById("error-message").textContent='Account already exists. Please login.';
+  });
 }
 
 

@@ -18,7 +18,7 @@ const ModalExampleCloseIcon = (props) =>
     <Modal.Content id='modal-content'>
       
       {<TabBuild history={props.history} />}
-
+    <div id="error-message"></div>
     </Modal.Content>
 
   </Modal>

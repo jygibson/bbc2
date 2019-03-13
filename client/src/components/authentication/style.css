@@ -7,11 +7,11 @@
 #modal{
     height: 250px;
     width: 250px;
-    background-color: #002626;
+    background-color:#eaeaea
 }
 
 #modal-content{
-    background-color: #002626;
+    background-color: #eaeaea
 }
 
 #header{
@@ -22,8 +22,10 @@
 
 #login-modal{
 background-color: #bca0bc;
+/* color: #bca0bc */
 }
 
 #signup{
  background-color: #ffdcdd;
+ /* color: #ffdcdd */
 }
